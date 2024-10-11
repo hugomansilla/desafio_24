@@ -1,14 +1,21 @@
-import React from 'react'
-import Header from "../components/Header" 
+import React from "react";
+import Header from "./Header";
+import Galeria from "./Galeria";
+import { usePizzaContext } from "../context/PizzaContext";
 
-const Home = () => {
+function Home() {
+  const {pizzas, loading, error} = usePizzaContext();
+
   return (
-    
-    <>
-      <Header/>
-    </>
-
-  )
+    <div className="vh-auto">
+      <Header />
+      <Galeria
+        pizzas={pizzas}
+        loading={loading}
+        error={error}
+      />
+    </div>
+  );
 }
 
-export default Home
+export default Home;
